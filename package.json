@@ -1,0 +1,18 @@
+{
+  "name": "bangazon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cli.js",
+  "scripts": {
+    "drop": "node seed/dropTables.js",
+    "create": "node seed/createTables.js",
+    "seed": "node seed/seedAll.js",
+    "reset_db": "npm run drop && npm run create && npm run seed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cli-table": "^0.3.1"
+  }
+}
