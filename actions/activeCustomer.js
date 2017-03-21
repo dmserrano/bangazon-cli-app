@@ -6,6 +6,14 @@ const prompt = require('prompt');
 
 // Display all customers
 const showActiveCustomers = () => {
+  let userId = process.env.CURRENT_USER_ID;
+
+  // If there is an active user do not grant access
+  if (userId != 0) {
+    console.log(`\nA customer is currently signed in.\n`);
+    return setTimeout(require('./menuOptions.js').startMenu, 1500);
+  };
+
   console.log('');
   // Query the database for all customers
   DB.each(`select customerId, name from customers`, (err, { customerId, name}) => {
