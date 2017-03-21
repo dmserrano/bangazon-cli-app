@@ -2,7 +2,9 @@
   "name": "bangazon",
   "version": "1.0.0",
   "description": "",
-  "bin": "cli.js",
+  "bin": {
+    "bangazon-cli": "bin/cli.js"
+  },
   "main": "cli.js",
   "scripts": {
     "drop": "node seed/dropTables.js",

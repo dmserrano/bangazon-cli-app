@@ -1,6 +1,8 @@
+#!/usr/bin/env node
+
 'use strict';
 
-const { startMenu } = require('./actions/menuOptions.js');
+const { startMenu } = require('../actions/menuOptions.js');
 const { green } = require('colors/safe');
 
 // Display menu and call prompt
