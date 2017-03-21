@@ -2,6 +2,7 @@
   "name": "bangazon",
   "version": "1.0.0",
   "description": "",
+  "bin": "cli.js",
   "main": "cli.js",
   "scripts": {
     "drop": "node seed/dropTables.js",
@@ -13,6 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cli-table": "^0.3.1"
+    "cli-table": "^0.3.1",
+    "prompt": "^1.0.0",
+    "sqlite3": "^3.1.8"
   }
 }

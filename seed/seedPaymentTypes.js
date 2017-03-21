@@ -5,7 +5,7 @@ const types = require('../json/types.json');
 
 module.exports = () => {
   types.forEach(({ name, accountNumber }) => {
-    DB.run(`insert into payment_options values (
+    DB.run(`insert into paymentOptions values (
       null, "${name.toUpperCase()}", "${accountNumber}"
     )`, errHandler);
   });
