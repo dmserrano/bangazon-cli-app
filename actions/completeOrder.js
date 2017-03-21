@@ -64,7 +64,7 @@ const completeOrder = () => {
     and li.productId = p.productId
   `, (err, { price }) => {
 
-    console.log(`\nYour order total is $${price} for Order #${orderId}. Ready to purchase?\n`);
+    console.log(`\nYour order total is $${price.toFixed(2)} for Order #${orderId}. Ready to purchase?\n`);
     // Prompt user to complete order, y or n
     prompt.get({name: '$', description: 'Y/N'}, (err, { $ }) => {
       $ = $.toLowerCase();
@@ -107,6 +107,8 @@ const determinePaymentOptions = () => {
 
 const displayPaymentOptionsForOrder = () => {
   let userId = process.env.CURRENT_USER_ID;
+  console.log('');
+  console.log('\nPlease select a payment option.\n');
 
   // Select all paymentOptions for active user
   DB.each(`select * from paymentOptions
@@ -115,12 +117,13 @@ const displayPaymentOptionsForOrder = () => {
     errHandler(err);
 
     // Display each paymentOption
-    console.log(`${paymentOptionId}.) ${name} ${accountNumber}`);
+    console.log(`${paymentOptionId}. ${name} ${accountNumber}`);
 
     // Completion callback
   }, (err, result) => {
     errHandler(err);
     // Prompt user for paymentOption selection
+    console.log('');
     setPaymentOptionsForOrder();
   });
 };
